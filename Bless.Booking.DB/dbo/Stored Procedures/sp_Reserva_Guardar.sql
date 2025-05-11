@@ -14,7 +14,7 @@ BEGIN
         BEGIN TRANSACTION;
 
         -- Insertar Cliente
-        INSERT INTO Clientes (Nombre, Telefono, Correo)
+        INSERT INTO Cliente (Nombre, Telefono, Correo)
         VALUES (@Nombre, @Telefono, @Correo);
 
         DECLARE @ClienteId INT = SCOPE_IDENTITY();
