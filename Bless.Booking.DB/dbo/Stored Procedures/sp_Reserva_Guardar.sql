@@ -1,5 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[sp_Reserva_Guardar]
-	@ClienteId INT,
+﻿CREATE OR ALTER PROCEDURE [dbo].[sp_Reserva_Guardar]
+    @Nombre NVARCHAR(100),
+    @Telefono NVARCHAR(20),
+    @Correo NVARCHAR(100),
     @BarberoId INT,
     @ServicioId INT,
     @Fecha DATE,
@@ -11,7 +13,13 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        -- Insertar reserva
+        -- Insertar Cliente
+        INSERT INTO Clientes (Nombre, Telefono, Correo)
+        VALUES (@Nombre, @Telefono, @Correo);
+
+        DECLARE @ClienteId INT = SCOPE_IDENTITY();
+
+        -- Insertar Reserva
         INSERT INTO Reservas (ClienteId, BarberoId, ServicioId, Fecha, Hora)
         VALUES (@ClienteId, @BarberoId, @ServicioId, @Fecha, @Hora);
 
