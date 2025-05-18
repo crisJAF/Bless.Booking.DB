@@ -10,7 +10,7 @@ BEGIN
 
     SELECT *
     INTO #Horario
-    FROM BarberoHorarioV3
+    FROM BarberoHorario
     WHERE BarberoID = @BarberoId AND Dia = @DiaSemana AND Estado = 1;
 
     SELECT 
@@ -20,7 +20,7 @@ BEGIN
     CROSS APPLY dbo.fn_GenerarCupos(h.HoraInicio, h.HoraFin, h.DuracionCupoMinutos) AS Cupos
     WHERE NOT EXISTS (
         SELECT 1
-        FROM ReservasV3 r
+        FROM Reservas r
         WHERE r.BarberoId = @BarberoId
           AND r.Fecha = @Fecha
           AND r.Hora = Cupos.HoraDesde
