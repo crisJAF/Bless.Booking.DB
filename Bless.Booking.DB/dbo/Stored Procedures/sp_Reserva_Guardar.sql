@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE [dbo].[sp_Reserva_Guardar]
+﻿CREATE PROCEDURE [dbo].[sp_Reserva_Guardar]
     @Nombre NVARCHAR(100),
     @Telefono NVARCHAR(20),
     @Correo NVARCHAR(100),
