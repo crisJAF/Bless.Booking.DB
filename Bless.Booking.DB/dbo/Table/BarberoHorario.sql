@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[BarberoHorarioV3]
+﻿CREATE TABLE [dbo].[BarberoHorario]
 (
 	BarberoHorarioID INT PRIMARY KEY IDENTITY,
     BarberoID INT NOT NULL,

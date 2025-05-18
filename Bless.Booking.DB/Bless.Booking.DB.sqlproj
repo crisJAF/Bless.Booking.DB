@@ -59,8 +59,6 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Table" />
     <Folder Include="dbo\Stored Procedures" />
-    <Folder Include="dbo\Table\V3" />
-    <Folder Include="dbo\Stored Procedures\V3" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Table\Cliente.sql" />
@@ -71,11 +69,7 @@
     <Build Include="dbo\Table\DetalleReserva.sql" />
     <Build Include="dbo\Stored Procedures\sp_Reserva_Guardar.sql" />
     <Build Include="dbo\Stored Procedures\sp_ListarHorariosDisponibles.sql" />
-    <Build Include="dbo\Table\V3\BarberoHorarioV3.sql" />
-    <Build Include="dbo\Table\V3\ReservaV3.sql" />
-    <Build Include="dbo\Stored Procedures\V3\fn_GenerarCupos.sql" />
-    <Build Include="dbo\Stored Procedures\V3\sp_LiostarHorariosDisponibles_v3.sql" />
-    <Build Include="dbo\Stored Procedures\V3\sp_Reserva_Guardar_v3.sql" />
     <Build Include="dbo\Table\BarberoHorario.sql" />
+    <Build Include="dbo\Stored Procedures\fn_GenerarCupos.sql" />
   </ItemGroup>
 </Project>
