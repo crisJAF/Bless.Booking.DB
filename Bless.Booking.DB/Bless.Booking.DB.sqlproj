@@ -56,5 +56,18 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Table" />
+    <Folder Include="dbo\Stored Procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Table\Cliente.sql" />
+    <Build Include="dbo\Table\Barbero.sql" />
+    <Build Include="dbo\Table\Servicio.sql" />
+    <Build Include="dbo\Table\Reservas.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Reserva_Guardar.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ListarHorariosDisponibles.sql" />
+    <Build Include="dbo\Table\BarberoHorario.sql" />
+    <Build Include="dbo\Stored Procedures\fn_GenerarCupos.sql" />
   </ItemGroup>
 </Project>
