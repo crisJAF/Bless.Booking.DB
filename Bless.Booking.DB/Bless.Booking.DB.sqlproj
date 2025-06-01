@@ -69,5 +69,8 @@
     <Build Include="dbo\Stored Procedures\sp_ListarHorariosDisponibles.sql" />
     <Build Include="dbo\Table\BarberoHorario.sql" />
     <Build Include="dbo\Stored Procedures\fn_GenerarCupos.sql" />
+    <Build Include="dbo\Table\Usuarios.sql" />
+    <Build Include="dbo\Stored Procedures\Usuario_ValidarLogin.sql" />
+    <Build Include="dbo\Stored Procedures\Usuario_Registrar.sql" />
   </ItemGroup>
 </Project>
