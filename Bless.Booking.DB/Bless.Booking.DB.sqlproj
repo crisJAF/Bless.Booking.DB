@@ -73,4 +73,7 @@
     <Build Include="dbo\Stored Procedures\Usuario_ValidarLogin.sql" />
     <Build Include="dbo\Stored Procedures\Usuario_Registrar.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Bless.Booking.DB.publish.xml" />
+  </ItemGroup>
 </Project>

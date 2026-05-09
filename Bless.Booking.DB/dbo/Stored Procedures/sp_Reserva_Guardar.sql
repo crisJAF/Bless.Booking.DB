@@ -60,11 +60,15 @@ BEGIN
         COMMIT;
     END TRY
     BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+
         IF @@TRANCOUNT > 0
         BEGIN
             ROLLBACK;
         END
 
-        THROW;
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
