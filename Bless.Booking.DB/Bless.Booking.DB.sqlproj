@@ -66,7 +66,7 @@
     <Build Include="dbo\Table\Servicio.sql" />
     <Build Include="dbo\Table\Reservas.sql" />
     <Build Include="dbo\Stored Procedures\sp_Reserva_Guardar.sql" />
-    <Build Include="dbo\Stored Procedures\sp_ListarHorariosDisponibles.sql" />
+    <Build Include="dbo\Stored Procedures\SP_ListarHorariosDisponibles.sql" />
     <Build Include="dbo\Table\BarberoHorario.sql" />
     <Build Include="dbo\Stored Procedures\fn_GenerarCupos.sql" />
     <Build Include="dbo\Table\Usuarios.sql" />

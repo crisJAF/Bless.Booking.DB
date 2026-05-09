@@ -10,10 +10,9 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @DiaSemana INT = DATEPART(WEEKDAY, @Fecha);
-
     -- Para asegurar que 2 = lunes (y 1 = domingo)
     SET DATEFIRST 7;
+    DECLARE @DiaSemana INT = DATEPART(WEEKDAY, @Fecha);
 
     BEGIN TRY
         BEGIN TRANSACTION;
@@ -21,7 +20,7 @@ BEGIN
         -- Validar que el barbero atiende en ese día y hora
         IF NOT EXISTS (
             SELECT 1
-            FROM BarberoHorario
+            FROM [dbo].[BarberoHorario]
             WHERE BarberoID = @BarberoId
               AND Dia = @DiaSemana
               AND @Hora >= HoraInicio
@@ -37,7 +36,7 @@ BEGIN
         -- Validar que el horario no esté ocupado
         IF EXISTS (
             SELECT 1
-            FROM Reserva
+            FROM [dbo].[Reservas] WITH (UPDLOCK, HOLDLOCK)
             WHERE BarberoID = @BarberoId
               AND Fecha = @Fecha
               AND Hora = @Hora
@@ -49,19 +48,23 @@ BEGIN
         END
 
         -- Insertar cliente
-        INSERT INTO Cliente (Nombre, Telefono, Correo)
+        INSERT INTO [dbo].[Cliente] (Nombre, Telefono, Correo)
         VALUES (@Nombre, @Telefono, @Correo);
 
         DECLARE @ClienteId INT = SCOPE_IDENTITY();
 
         -- Insertar reserva
-        INSERT INTO Reserva (ClienteId, BarberoId, ServicioId, Fecha, Hora)
+        INSERT INTO [dbo].[Reservas] (ClienteId, BarberoId, ServicioId, Fecha, Hora)
         VALUES (@ClienteId, @BarberoId, @ServicioId, @Fecha, @Hora);
 
         COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        IF @@TRANCOUNT > 0
+        BEGIN
+            ROLLBACK;
+        END
+
         THROW;
     END CATCH
 END;
