@@ -73,6 +73,9 @@
     <Build Include="dbo\Table\Usuarios.sql" />
     <Build Include="dbo\Stored Procedures\Usuario_ValidarLogin.sql" />
     <Build Include="dbo\Stored Procedures\Usuario_Registrar.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Barbero_Listar.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Servicio_Listar.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ObtenerReservasPorFecha.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bless.Booking.DB.publish.xml" />
