@@ -59,6 +59,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Table" />
     <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="DataTest" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Table\Cliente.sql" />
@@ -75,5 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Bless.Booking.DB.publish.xml" />
+    <PostDeploy Include="Script.PostDeployment.sql" />
+    <None Include="DataTest\Data.sql" />
   </ItemGroup>
 </Project>
